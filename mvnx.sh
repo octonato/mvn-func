@@ -2,27 +2,27 @@
 
 function mvnx()
 {
-	ARGS=""
-	ARGS_LABEL=""
-	POMS=""
-	SEP="------------------------------------------------------------------------"
-	
-	if [ $# -gt 0 ] ; then
-		for i in $@
-	    do
-	    	if [ -d "$i" ] ; then
-	    		POMS="$POMS ${i%%/}/pom.xml"
-	   		elif [ -f "$i" ]; then
-	   			POMS="$POMS $i"
-	   		else
-				ARGS="$ARGS $i" 
-	    	fi
-	    
-	    done
+    ARGS=""
+    ARGS_LABEL=""
+    POMS=""
+    SEP="------------------------------------------------------------------------"
+    
+    if [ $# -gt 0 ] ; then
+        for i in $@
+        do
+            if [ -d "$i" ] ; then
+                POMS="$POMS ${i%%/}/pom.xml"
+            elif [ -f "$i" ]; then
+                POMS="$POMS $i"
+            else
+                ARGS="$ARGS $i" 
+            fi
+        
+        done
     fi
     
     if [ -z "$POMS" ] ; then
-    	POMS="pom.xml"
+        POMS="pom.xml"
     fi
 
     # print out all requests
@@ -38,28 +38,28 @@ function mvnx()
     
     for POM in $POMS
     do
-	    if [ ! -f $POM ] ; then
-			echo "$POM - pom file not found"
-		else 
-			
-		    if (mvn $ARGS -f $POM) ; then
-  		        echo $SEP
-    		    echo "Done"	    
+        if [ ! -f $POM ] ; then
+            echo "$POM - pom file not found"
+        else 
+            
+            if (mvn $ARGS -f $POM) ; then
+                echo $SEP
+                echo "Done"     
                 print-cmd $POM "$ARGS"
-		    else
+            else
 
                 echo $SEP    
                 echo "Failed build"
                 print-cmd $POM "$ARGS"
 
-		        break
-		    fi
-		    		    
+                break
+            fi
+                        
             echo $SEP
             echo
 
-	    fi
-	done	
+        fi
+    done    
 
 }
 
