@@ -29,7 +29,7 @@ function mvnx()
     echo $SEP
     for POM in $POMS
     do    
-        print-cmd $POM "$ARGS"
+        summary $POM "$ARGS"
     done
     
     echo $SEP
@@ -45,12 +45,12 @@ function mvnx()
             if (mvn $ARGS -f $POM) ; then
                 echo $SEP
                 echo "Done"     
-                print-cmd $POM "$ARGS"
+                summary $POM "$ARGS"
             else
 
                 echo $SEP    
                 echo "Failed build"
-                print-cmd $POM "$ARGS"
+                summary $POM "$ARGS"
 
                 break
             fi
@@ -63,7 +63,7 @@ function mvnx()
 
 }
 
-function print-cmd()
+function summary()
 {
     if [ ! -z "$2" ] ; then
         ARGS_LABEL="[extra args:$2]"
