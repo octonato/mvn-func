@@ -16,7 +16,7 @@ mvnx clean install path/to/projectA path/to/projectB
 
 or if mvnx-extras.sh also imported
 
-mvn-ins clean install path/to/projectA path/to/projectB
+mvn-ins path/to/projectA path/to/projectB
 
 Execution will stop on first failure.
 
