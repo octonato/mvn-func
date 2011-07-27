@@ -1,22 +1,22 @@
-Some shell scripts for day to day work to ease interaction with maven.
+Some shell scripts for day-to-day work to ease interaction with maven.
 
 Install
 -------
 
 Just import functions to your shell environment 
 
-source mvnx.sh
+source xvn.sh
 # optional
-source mvnx-extras.sh 
+source xvn-extras.sh 
 
 Usage
 -----
 
-mvnx clean install path/to/projectA path/to/projectB
+xvn clean install path/to/projectA path/to/projectB
 
-or if mvnx-extras.sh also imported
+or if xvn-extras.sh is also loaded in your shell
 
-mvn-ins path/to/projectA path/to/projectB
+xvn-ins path/to/projectA path/to/projectB
 
 Execution will stop on first failure.
 
