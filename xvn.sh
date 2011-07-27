@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function mvnx()
+function xvn()
 {
     ARGS=""
     ARGS_LABEL=""
